@@ -26,7 +26,7 @@ public class Buku extends Koleksi{
         return 7; 
     }
     
-    @Override 
+    @Override
     public long hitungDenda(int hariTerlambat) { 
         return hariTerlambat * 1000L; 
     } 

@@ -4,6 +4,8 @@
  */
 package id.ac.uniska.pbo2.p02;
 
+import java.util.List;
+
 /**
  *
  * @author medip
@@ -15,12 +17,13 @@ public class AplikasiPerpustakaan {
         perpus.tambah(new Buku("B001", "Laskar Pelangi", 2005, "Andrea Hirata")); 
         perpus.tambah(new Buku("B002", "Clean Code", 2008, "Robert C. Martin")); 
         perpus.tambah(new Majalah("M001", "Majalah Teknologi Kita", 2026, "Agustus")); 
-  
+        perpus.tambah(new Skripsi("S001", "Rancang Bangun Sistem Informasi Perpustakaan", 2025, "Siti Rahmah", "Teknik Informatika"));
+        
         Anggota siti = new Anggota("2410010123", "Siti Rahmah"); 
         Anggota budi = new Anggota("2410010456", "Budi Santoso"); 
   
-        tampilkanDaftar(perpus); 
-  
+        tampilkanDaftar(perpus);
+        
         System.out.println(); 
         cetakPinjam(perpus, "B002", siti); 
         cetakPinjam(perpus, "B002", budi); 
@@ -34,6 +37,17 @@ public class AplikasiPerpustakaan {
         System.out.println(); 
         System.out.println("Koleksi tersedia: " + perpus.jumlahTersedia() 
                 + " dari " + perpus.getDaftarKoleksi().size()); 
+        
+        System.out.println();
+        String kataKunci = "code";
+        List<Koleksi> hasilCari = perpus.cariJudul(kataKunci);
+        System.out.println("Hasil pencarian \"" + kataKunci + "\": " + hasilCari.size() + " koleksi");
+        for (Koleksi k : hasilCari) {
+            System.out.println(k);
+        }
+
+        System.out.println();
+        cetakPinjam(perpus, "S001", siti);
     } 
   
     private static void tampilkanDaftar(Perpustakaan perpus) { 
@@ -54,4 +68,4 @@ public class AplikasiPerpustakaan {
         System.out.println("Pengembalian " + kode + " terlambat " + hariTerlambat 
                 + " hari, denda Rp" + denda); 
     } 
-} 
+}
