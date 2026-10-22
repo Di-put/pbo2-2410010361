@@ -68,6 +68,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
+        radioPanel = new javax.swing.JPanel();
         tombolPanel = new javax.swing.JPanel();
         batalButton = new javax.swing.JButton();
         daftarButton = new javax.swing.JButton();
@@ -252,6 +253,9 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(16, 16, 4, 0);
         formPanel.add(jCheckBox1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.weightx = 1.0;
+        formPanel.add(radioPanel, gridBagConstraints);
 
         isiPanel.add(formPanel, java.awt.BorderLayout.CENTER);
 
@@ -315,6 +319,7 @@ public class FormAnggotaPerpustakaan extends javax.swing.JFrame {
     private javax.swing.JLabel judulLabel;
     private javax.swing.JLabel keteranganLabel;
     private javax.swing.JLabel kontakLabel;
+    private javax.swing.JPanel radioPanel;
     private javax.swing.JPanel tombolPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -29,8 +29,9 @@ Jawaban :
 | Tombol | JPanel (Button Panel) | FlowLayout |
 
 -Dua tangkapan layar (screenshot) FormAnggotaPerpustakaan saat dijalankan: ukuran awal dan saat dilebarkan :
-![alt text](<ukuranAwal.png>)
-![alt text](<saatdiLebarkan.png>)
+![alt text](<Screenshot 2026-10-18 212951.png>)
+![alt text](<Screenshot 2026-10-18 213240.png>)
+
 
 -Satu tangkapan layar (screenshot) tab Design FormAnggotaPerpustakaan yang memperlihatkan susunan panel dan layout di jendela Navigator :
 ![alt text](navigator.png)
