@@ -5,7 +5,6 @@
 package id.ac.uniska.pbo2.p06;
 
 import com.formdev.flatlaf.FlatLaf;
-import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.util.ArrayList;
@@ -14,7 +13,6 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-
 
 /**
  *
@@ -25,32 +23,32 @@ public class FormAnggota extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormAnggota.class.getName());
 
     /**
-     * Creates new form FormAnggotaPerpustakaan
+     * Creates new form FormAnggota
      */
     public FormAnggota() {
         initComponents();
-       
-         // Gaya huruf dan placeholder FlatLaf 
+        
+        // Gaya huruf dan placeholder FlatLaf 
         judulLabel.putClientProperty("FlatLaf.styleClass", "h2"); 
-        keteranganLabel.putClientProperty("FlatLaf.style", "foreground: $Label.disabledForeground"); 
+        dataAnggotaLabel.putClientProperty("FlatLaf.style", "foreground: $Label.disabledForeground"); 
         dataAnggotaLabel.putClientProperty("FlatLaf.styleClass", "h4"); 
         kontakLabel.putClientProperty("FlatLaf.styleClass", "h4"); 
-        emailField.putClientProperty("JTextField.placeholderText", "nama@contoh.com"); 
-        hpField.putClientProperty("JTextField.placeholderText", "08xxxxxxxxxx"); 
-        
-         // Label pesan kesalahan: huruf kecil dan warna merah yang mengikuti tema 
+        npmField.putClientProperty("JTextField.placeholderText", "Contoh: 2410010123");
+         emailField.putClientProperty("JTextField.placeholderText", "nama@contoh.com"); 
+    hpField.putClientProperty("JTextField.placeholderText", "08xxxxxxxxxx"); 
+  
+    // Label pesan kesalahan: huruf kecil dan warna merah yang mengikuti tema 
     for (JLabel pesan : List.of(npmPesanLabel, namaPesanLabel, prodiPesanLabel, emailPesanLabel, 
 hpPesanLabel)) { 
         pesan.putClientProperty("FlatLaf.styleClass", "small"); 
         pesan.setForeground(warnaKesalahan()); 
     } 
-    statusLabel.setForeground(warnaKesalahan());
-        
-        getRootPane().setDefaultButton(daftarButton); 
-        
-        pack();                    
-        setMinimumSize(getSize());    
-        setLocationRelativeTo(null);
+    statusLabel.setForeground(warnaKesalahan()); 
+  
+    getRootPane().setDefaultButton(daftarButton); 
+    pack(); 
+    setMinimumSize(getSize()); 
+    setLocationRelativeTo(null);
     }
 
     /**
@@ -63,46 +61,49 @@ hpPesanLabel)) {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jLabel11 = new javax.swing.JLabel();
         headerPanel = new javax.swing.JPanel();
         judulLabel = new javax.swing.JLabel();
         keteranganLabel = new javax.swing.JLabel();
         isiPanel = new javax.swing.JPanel();
         formPanel = new javax.swing.JPanel();
         dataAnggotaLabel = new javax.swing.JLabel();
-        npmPesanLabel = new javax.swing.JLabel();
-        npmField = new javax.swing.JTextField();
         namaPesanLabel = new javax.swing.JLabel();
-        namaField = new javax.swing.JTextField();
         prodiPesanLabel = new javax.swing.JLabel();
-        prodiCombo = new javax.swing.JComboBox<>();
-        JenisLabel = new javax.swing.JLabel();
+        jenisPesanLabel = new javax.swing.JLabel();
         kontakLabel = new javax.swing.JLabel();
         emailPesanLabel = new javax.swing.JLabel();
+        alamatLabel = new javax.swing.JLabel();
+        npmField = new javax.swing.JTextField();
+        namaField = new javax.swing.JTextField();
+        prodiCombo = new javax.swing.JComboBox<>();
         emailField = new javax.swing.JTextField();
-        hpPesanLabel = new javax.swing.JLabel();
-        hpField = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         alamatArea = new javax.swing.JTextArea();
-        jLabel12 = new javax.swing.JLabel();
-        setujuCheck = new javax.swing.JCheckBox();
         jenisPanel = new javax.swing.JPanel();
         mahasiswaRadio = new javax.swing.JRadioButton();
         dosenRadio = new javax.swing.JRadioButton();
         umumRadio = new javax.swing.JRadioButton();
-        tombolPanel = new javax.swing.JPanel();
+        setujuCheck = new javax.swing.JCheckBox();
+        hpPesanLabel = new javax.swing.JLabel();
+        hpField = new javax.swing.JTextField();
+        npmPesanLabel = new javax.swing.JLabel();
+        namaLabel = new javax.swing.JLabel();
+        prodiLabel = new javax.swing.JLabel();
+        anggotaLabel = new javax.swing.JLabel();
+        emailLabel = new javax.swing.JLabel();
+        hpLabel = new javax.swing.JLabel();
+        npmLabel = new javax.swing.JLabel();
         bawahPanel = new javax.swing.JPanel();
+        tombolPanel = new javax.swing.JPanel();
         statusLabel = new javax.swing.JLabel();
         batalButton = new javax.swing.JButton();
         daftarButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Form Anggota Perpustakaan");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-        });
+        jLabel11.setText("jLabel11");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pendaftaran Anggota Perpustakaan");
 
         headerPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 16, 8, 16));
         headerPanel.setLayout(new javax.swing.BoxLayout(headerPanel, javax.swing.BoxLayout.Y_AXIS));
@@ -110,7 +111,7 @@ hpPesanLabel)) {
         judulLabel.setText("Pendaftaran Anggota");
         headerPanel.add(judulLabel);
 
-        keteranganLabel.setText("Semua isian wajib diisi, kecuali alamat");
+        keteranganLabel.setText("Semua isian wajib diisi, kecuali alamat.");
         headerPanel.add(keteranganLabel);
 
         getContentPane().add(headerPanel, java.awt.BorderLayout.NORTH);
@@ -123,33 +124,77 @@ hpPesanLabel)) {
 
         dataAnggotaLabel.setText("Data Anggota");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 2, 2, 0);
         formPanel.add(dataAnggotaLabel, gridBagConstraints);
 
-        npmPesanLabel.setDisplayedMnemonic('P');
-        npmPesanLabel.setLabelFor(npmField);
-        npmPesanLabel.setText("NPM");
-        npmPesanLabel.setToolTipText("Masukkan 10 digit NPM Anda");
+        namaPesanLabel.setDisplayedMnemonic('N');
+        namaPesanLabel.setLabelFor(namaField);
+        namaPesanLabel.setText(" ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 2, 0);
+        formPanel.add(namaPesanLabel, gridBagConstraints);
+
+        prodiPesanLabel.setDisplayedMnemonic('R');
+        prodiPesanLabel.setLabelFor(prodiCombo);
+        prodiPesanLabel.setText(" ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 2, 0);
+        formPanel.add(prodiPesanLabel, gridBagConstraints);
+
+        jenisPesanLabel.setDisplayedMnemonic('J');
+        jenisPesanLabel.setLabelFor(jenisPanel);
+        jenisPesanLabel.setText(" ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 2, 0);
+        formPanel.add(jenisPesanLabel, gridBagConstraints);
+
+        kontakLabel.setText("Kontak");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 2, 2, 0);
-        formPanel.add(npmPesanLabel, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(4, 0, 4, 0);
+        formPanel.add(kontakLabel, gridBagConstraints);
 
-        npmField.setToolTipText("");
+        emailPesanLabel.setDisplayedMnemonic('E');
+        emailPesanLabel.setLabelFor(emailField);
+        emailPesanLabel.setText(" ");
+        emailPesanLabel.setToolTipText("[\\w.+-]+@[\\w-]+(\\.[\\w-]+)+ ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 2, 0);
+        formPanel.add(emailPesanLabel, gridBagConstraints);
+
+        alamatLabel.setDisplayedMnemonic('L');
+        alamatLabel.setLabelFor(alamatArea);
+        alamatLabel.setText("Alamat");
+        alamatLabel.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 0);
+        formPanel.add(alamatLabel, gridBagConstraints);
+
+        npmField.setToolTipText("\\d{10} ");
         npmField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 npmFieldFocusLost(evt);
             }
         });
         npmField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                npmFieldKeyReleased(evt);
-            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 npmFieldKeyTyped(evt);
             }
@@ -160,18 +205,7 @@ hpPesanLabel)) {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(4, 16, 4, 0);
         formPanel.add(npmField, gridBagConstraints);
-
-        namaPesanLabel.setDisplayedMnemonic('N');
-        namaPesanLabel.setLabelFor(namaField);
-        namaPesanLabel.setText("Nama Lengkap");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 2, 2, 0);
-        formPanel.add(namaPesanLabel, gridBagConstraints);
 
         namaField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -180,139 +214,48 @@ hpPesanLabel)) {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(4, 16, 4, 0);
+        gridBagConstraints.weightx = 1.0;
         formPanel.add(namaField, gridBagConstraints);
 
-        prodiPesanLabel.setDisplayedMnemonic('R');
-        prodiPesanLabel.setText("Program Studi");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 2, 2, 0);
-        formPanel.add(prodiPesanLabel, gridBagConstraints);
-
-        prodiCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Teknik Informatika", "Sistem Informasi", " " }));
+        prodiCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Teknik Informatika", "Sistem Informasi", "Manajemen Informatika" }));
         prodiCombo.addItemListener(this::prodiComboItemStateChanged);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(4, 16, 4, 0);
+        gridBagConstraints.weightx = 1.0;
         formPanel.add(prodiCombo, gridBagConstraints);
-
-        JenisLabel.setDisplayedMnemonic('J');
-        JenisLabel.setText("Jenis Anggota");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 2, 2, 0);
-        formPanel.add(JenisLabel, gridBagConstraints);
-
-        kontakLabel.setText("Kontak");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(16, 2, 2, 0);
-        formPanel.add(kontakLabel, gridBagConstraints);
-
-        emailPesanLabel.setDisplayedMnemonic('E');
-        emailPesanLabel.setText("Email ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 2, 2, 0);
-        formPanel.add(emailPesanLabel, gridBagConstraints);
 
         emailField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 emailFieldFocusLost(evt);
             }
         });
-        emailField.addActionListener(this::emailFieldActionPerformed);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(4, 16, 4, 0);
         formPanel.add(emailField, gridBagConstraints);
 
-        hpPesanLabel.setDisplayedMnemonic('N');
-        hpPesanLabel.setText("nomor HP");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 2, 2, 0);
-        formPanel.add(hpPesanLabel, gridBagConstraints);
-
-        hpField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                hpFieldFocusLost(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(4, 16, 4, 0);
-        formPanel.add(hpField, gridBagConstraints);
-
-        jLabel11.setDisplayedMnemonic('L');
-        jLabel11.setText("Alamat");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 2, 2, 0);
-        formPanel.add(jLabel11, gridBagConstraints);
-
-        alamatArea.setColumns(20);
+        alamatArea.setColumns(22);
         alamatArea.setRows(5);
         jScrollPane1.setViewportView(alamatArea);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(4, 16, 4, 0);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         formPanel.add(jScrollPane1, gridBagConstraints);
 
-        jLabel12.setText("Persetujuan");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(16, 0, 0, 0);
-        formPanel.add(jLabel12, gridBagConstraints);
-
-        setujuCheck.setMnemonic('T');
-        setujuCheck.setText("Setuju dengan tata tertib  perpustakaan ");
-        setujuCheck.addItemListener(this::setujuCheckItemStateChanged);
-        setujuCheck.addActionListener(this::setujuCheckActionPerformed);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(16, 16, 4, 0);
-        formPanel.add(setujuCheck, gridBagConstraints);
-
-        jenisPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 12, 5));
+        jenisPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         mahasiswaRadio.setText("Mahasiswa");
         mahasiswaRadio.addActionListener(this::mahasiswaRadioActionPerformed);
@@ -326,58 +269,199 @@ hpPesanLabel)) {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(4, 0, 4, 0);
         formPanel.add(jenisPanel, gridBagConstraints);
+
+        setujuCheck.setMnemonic('T');
+        setujuCheck.setText("Saya setuju dengan tata tertib perpustakaan");
+        setujuCheck.addItemListener(this::setujuCheckItemStateChanged);
+        setujuCheck.addActionListener(this::setujuCheckActionPerformed);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        formPanel.add(setujuCheck, gridBagConstraints);
+
+        hpPesanLabel.setDisplayedMnemonic('H');
+        hpPesanLabel.setLabelFor(hpField);
+        hpPesanLabel.setText(" ");
+        hpPesanLabel.setToolTipText("08\\d{8,11} ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 2, 0);
+        formPanel.add(hpPesanLabel, gridBagConstraints);
+
+        hpField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                hpFieldFocusLost(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        formPanel.add(hpField, gridBagConstraints);
+
+        npmPesanLabel.setDisplayedMnemonic('P');
+        npmPesanLabel.setLabelFor(npmField);
+        npmPesanLabel.setText(" ");
+        npmPesanLabel.setToolTipText("\\d{10} ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        formPanel.add(npmPesanLabel, gridBagConstraints);
+
+        namaLabel.setText("Nama Lengkap");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 4);
+        formPanel.add(namaLabel, gridBagConstraints);
+
+        prodiLabel.setText("Program studi");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        formPanel.add(prodiLabel, gridBagConstraints);
+
+        anggotaLabel.setText("Jenis anggota");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        formPanel.add(anggotaLabel, gridBagConstraints);
+
+        emailLabel.setText("Email");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        formPanel.add(emailLabel, gridBagConstraints);
+
+        hpLabel.setText("Nomor HP");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        formPanel.add(hpLabel, gridBagConstraints);
+
+        npmLabel.setText("NPM");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        formPanel.add(npmLabel, gridBagConstraints);
 
         isiPanel.add(formPanel, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(isiPanel, java.awt.BorderLayout.CENTER);
 
-        tombolPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 16, 8, 16));
+        bawahPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(16, 16, 8, 16));
+
         tombolPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 8, 0));
-
-        bawahPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 8, 0));
-
-        statusLabel.setToolTipText("");
-        bawahPanel.add(statusLabel);
+        tombolPanel.add(statusLabel);
 
         batalButton.setText("Batal");
         batalButton.addActionListener(this::batalButtonActionPerformed);
-        bawahPanel.add(batalButton);
+        tombolPanel.add(batalButton);
 
         daftarButton.setText("Daftar");
-        daftarButton.setEnabled(false);
         daftarButton.addActionListener(this::daftarButtonActionPerformed);
-        bawahPanel.add(daftarButton);
+        tombolPanel.add(daftarButton);
 
-        tombolPanel.add(bawahPanel);
+        javax.swing.GroupLayout bawahPanelLayout = new javax.swing.GroupLayout(bawahPanel);
+        bawahPanel.setLayout(bawahPanelLayout);
+        bawahPanelLayout.setHorizontalGroup(
+            bawahPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bawahPanelLayout.createSequentialGroup()
+                .addGap(186, 186, 186)
+                .addComponent(tombolPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        bawahPanelLayout.setVerticalGroup(
+            bawahPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bawahPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tombolPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
 
-        getContentPane().add(tombolPanel, java.awt.BorderLayout.SOUTH);
+        getContentPane().add(bawahPanel, java.awt.BorderLayout.SOUTH);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void emailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailFieldActionPerformed
+    private void mahasiswaRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mahasiswaRadioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailFieldActionPerformed
+    }//GEN-LAST:event_mahasiswaRadioActionPerformed
 
-    private void setujuCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_setujuCheckItemStateChanged
+    private void setujuCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setujuCheckActionPerformed
         // TODO add your handling code here:
-        daftarButton.setEnabled(setujuCheck.isSelected());
-    }//GEN-LAST:event_setujuCheckItemStateChanged
+    }//GEN-LAST:event_setujuCheckActionPerformed
 
-    private void npmFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_npmFieldKeyReleased
+    private void npmFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_npmFieldKeyTyped
         // TODO add your handling code here:
         // Pencegahan kesalahan: NPM hanya menerima angka dan paling banyak 10 digit 
         boolean penuh = npmField.getText().length() >= 10 
-            && npmField.getSelectedText() == null; 
+                && npmField.getSelectedText() == null; 
         if (!Character.isDigit(evt.getKeyChar()) || penuh) { 
-        evt.consume(); // karakter tidak dimasukkan ke isian 
+            evt.consume(); // karakter tidak dimasukkan ke isian
+        }
+    }//GEN-LAST:event_npmFieldKeyTyped
+
+    private void npmFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_npmFieldFocusLost
+        // TODO add your handling code here:
+        // Umpan balik segera, tetapi isian kosong baru diperiksa saat Daftar diklik 
+        if (!npmField.getText().isBlank()) { 
+            periksaNpm();
+        }
+    }//GEN-LAST:event_npmFieldFocusLost
+
+    private void namaFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_namaFieldFocusLost
+        // TODO add your handling code here:
+        if (!namaField.getText().isBlank()) { 
+            periksaNama(); 
+        }
+    }//GEN-LAST:event_namaFieldFocusLost
+
+    private void prodiComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_prodiComboItemStateChanged
+        // TODO add your handling code here:
+        if (evt.getStateChange() == ItemEvent.SELECTED) { 
+            periksaProdi();
         } 
-    }//GEN-LAST:event_npmFieldKeyReleased
+    }//GEN-LAST:event_prodiComboItemStateChanged
+
+    private void emailFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFieldFocusLost
+        // TODO add your handling code here:
+         if (!emailField.getText().isBlank()) { 
+            periksaEmail();
+         }
+    }//GEN-LAST:event_emailFieldFocusLost
+
+    private void hpFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_hpFieldFocusLost
+        // TODO add your handling code here:
+         if (!hpField.getText().isBlank()) { 
+            periksaHp(); 
+         }
+    }//GEN-LAST:event_hpFieldFocusLost
+
+    private void setujuCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_setujuCheckItemStateChanged
+        // TODO add your handling code here:
+        daftarButton.setEnabled(setujuCheck.isSelected()); 
+    }//GEN-LAST:event_setujuCheckItemStateChanged
 
     private void batalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalButtonActionPerformed
+        // TODO add your handling code here:
         batal();
     }//GEN-LAST:event_batalButtonActionPerformed
 
@@ -386,221 +470,184 @@ hpPesanLabel)) {
         daftar();
     }//GEN-LAST:event_daftarButtonActionPerformed
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        // TODO add your handling code here:
-        int jawab = javax.swing.JOptionPane.showConfirmDialog(this, 
-            "Keluar dari aplikasi?", "Konfirmasi", javax.swing.JOptionPane.YES_NO_OPTION);
-        if (jawab == javax.swing.JOptionPane.YES_OPTION) {
-            dispose();
-        }   
-    }//GEN-LAST:event_formWindowClosing
-
-    private void setujuCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setujuCheckActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_setujuCheckActionPerformed
-
-    private void mahasiswaRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mahasiswaRadioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mahasiswaRadioActionPerformed
-
-    private void npmFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_npmFieldKeyTyped
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        if (!Character.isDigit(c)) {
-        evt.consume(); // Membatalkan karakter bukan angka
-        }
-    }//GEN-LAST:event_npmFieldKeyTyped
-
-    private void npmFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_npmFieldFocusLost
-        // TODO add your handling code here:
-        // Umpan balik segera, tetapi isian kosong baru diperiksa saat Daftar diklik 
-        if (!npmField.getText().isBlank()) {  
-            periksaNpm();
-        }
-    }//GEN-LAST:event_npmFieldFocusLost
-
-    private void namaFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_namaFieldFocusLost
-        // TODO add your handling code here:
-        if (!namaField.getText().isBlank()) { 
-            periksaNama();
-        }
-    }//GEN-LAST:event_namaFieldFocusLost
-
-    private void emailFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFieldFocusLost
-        // TODO add your handling code here:
-        if (!emailField.getText().isBlank()) { 
-            periksaEmail();
-        }
-    }//GEN-LAST:event_emailFieldFocusLost
-
-    private void hpFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_hpFieldFocusLost
-        // TODO add your handling code here:
-        if (!hpField.getText().isBlank()) { 
-            periksaHp(); 
-        }
-    }//GEN-LAST:event_hpFieldFocusLost
-
-    private void prodiComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_prodiComboItemStateChanged
-        // TODO add your handling code here
-         if (evt.getStateChange() == ItemEvent.SELECTED) { 
-            periksaProdi(); 
-        }
-    }//GEN-LAST:event_prodiComboItemStateChanged
-
-    private boolean periksaNpm() {
-        return tandai(npmField, npmPesanLabel, Validator.npm(npmField.getText()));
-    }
+    //method bantu
     
-    private boolean periksaNama() {
-        return tandai(namaField, namaPesanLabel, Validator.nama(namaField.getText()));
-    }
-
-    private boolean periksaProdi() {
-        String kesalahan = null;
-        if (prodiCombo.getSelectedIndex() == 0) {
-            kesalahan = "Pilih salah satu program studi";
-        }
-        return tandai(prodiCombo, prodiPesanLabel, kesalahan);
-    }
-
-    private boolean periksaEmail() {
-        return tandai(emailField, emailPesanLabel, Validator.email(emailField.getText()));
-    }
-
-    private boolean periksaHp() {
-        return tandai(hpField, hpPesanLabel, Validator.nomorHp(hpField.getText()));
-    }
-
-    /** Menandai isian dengan garis merah dan pesan. Mengembalikan true jika isian valid. */
+    private boolean periksaNpm() { 
+    return tandai(npmField, npmPesanLabel, Validator.npm(npmField.getText())); 
+    } 
+  
+    private boolean periksaNama() { 
+    return tandai(namaField, namaPesanLabel, Validator.nama(namaField.getText())); 
+    } 
+  
+    private boolean periksaProdi() { 
+        String kesalahan = null; 
+        if (prodiCombo.getSelectedIndex() == 0) { 
+            kesalahan = "Pilih salah satu program studi"; 
+        } 
+        return tandai(prodiCombo, prodiPesanLabel, kesalahan); 
+    } 
+  
+    private boolean periksaEmail() { 
+        return tandai(emailField, emailPesanLabel, Validator.email(emailField.getText())); 
+    } 
+  
+    private boolean periksaHp() { 
+        return tandai(hpField, hpPesanLabel, Validator.nomorHp(hpField.getText())); 
+    } 
+  
+    /** Menandai isian dengan garis merah dan pesan. Mengembalikan true jika isian valid. */ 
     private boolean tandai(JComponent isian, JLabel pesan, String kesalahan) {
         isian.putClientProperty("JComponent.outline", (kesalahan == null) ? null : "error");
         pesan.setText((kesalahan == null) ? "" : kesalahan);
         return kesalahan == null;
+}
+  
+private void daftar() { 
+    // Semua isian diperiksa agar pengguna melihat seluruh kesalahan sekaligus 
+    List<JComponent> salah = new ArrayList<>(); 
+    if (!periksaNpm()) { 
+        salah.add(npmField); 
+    } 
+    if (!periksaNama()) { 
+        salah.add(namaField); 
+    } 
+    if (!periksaProdi()) { 
+        salah.add(prodiCombo); 
+    } 
+    if (!periksaEmail()) { 
+        salah.add(emailField); 
+    } 
+    if (!periksaHp()) { 
+        salah.add(hpField); 
+    } 
+  
+    if (!salah.isEmpty()) { 
+        statusLabel.setText(salah.size() + " isian perlu diperbaiki"); 
+        salah.get(0).requestFocusInWindow(); // arahkan pengguna ke kesalahan pertama 
+        return; 
     }
-
-    private void daftar() {
-        List<JComponent> salah = new ArrayList<>();
-        if (!periksaNpm()) {
-            salah.add(npmField);
-        }
-        if (!periksaNama()) {
-            salah.add(namaField);
-        }
-        if (!periksaProdi()) {
-            salah.add(prodiCombo);
-        }
-        if (!periksaEmail()) {
-            salah.add(emailField);
-        }
-        if (!periksaHp()) {
-            salah.add(hpField);
-        }
-
-        if (!salah.isEmpty()) {
-            statusLabel.setText(salah.size() + " isian perlu diperbaiki");
-            salah.get(0).requestFocusInWindow(); // arahkan pengguna ke kesalahan pertama
-            return;
-        }
-
-        statusLabel.setText("");
-        String pesan = "Pendaftaran berhasil."
-                + "\n\nNPM: " + npmField.getText()
-                + "\nNama: " + namaField.getText().trim()
-                + "\nJenis anggota: " + jenisAnggota();
-        JOptionPane.showMessageDialog(this, pesan, "Pendaftaran Berhasil",
-                JOptionPane.INFORMATION_MESSAGE);
-        kosongkan();
-    }
-
-    private String jenisAnggota() {
-        if (dosenRadio.isSelected()) {
-            return "Dosen";
-        }
-        if (umumRadio.isSelected()) {
-            return "Umum";
-        }
-        return "Mahasiswa";
-    }
-
-    private void batal() {
-        // Aksi yang menghapus data meminta konfirmasi terlebih dahulu
-        if (adaIsian()) {
-            int jawab = JOptionPane.showConfirmDialog(this,
-                    "Data yang sudah diisi akan dihapus. Lanjutkan?", "Konfirmasi",
-                    JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-            if (jawab != JOptionPane.YES_OPTION) {
-                return;
-            }
-        }
-        kosongkan();
-    }
-
-    private boolean adaIsian() {
-        return !npmField.getText().isBlank() || !namaField.getText().isBlank()
-                || !emailField.getText().isBlank() || !hpField.getText().isBlank()
-                || !alamatArea.getText().isBlank();
-    }
-
-    private void kosongkan() {
-        for (JTextField isian : List.of(npmField, namaField, emailField, hpField)) {
-            isian.setText("");
-        }
-        alamatArea.setText("");
-        prodiCombo.setSelectedIndex(0);
-        mahasiswaRadio.setSelected(true);
-        setujuCheck.setSelected(false);
-        tandai(npmField, npmPesanLabel, null);
-        tandai(namaField, namaPesanLabel, null);
-        tandai(prodiCombo, prodiPesanLabel, null);
-        tandai(emailField, emailPesanLabel, null);
-        tandai(hpField, hpPesanLabel, null);
-        statusLabel.setText("");
-        npmField.requestFocusInWindow();
-    }
-
-    /** Merah yang mudah dibaca: lebih gelap di tema terang, lebih terang di tema gelap. */
-    static Color warnaKesalahan() {
-        return FlatLaf.isLafDark() ? new Color(0xFF8A80) : new Color(0xC62828);
-    }
+     statusLabel.setText(" "); 
+    String pesan = "Pendaftaran berhasil." 
+            + "\n\nNPM: " + npmField.getText() 
+            + "\nNama: " + namaField.getText().trim() 
+            + "\nJenis anggota: " + jenisAnggota(); 
+    JOptionPane.showMessageDialog(this, pesan, "Pendaftaran Berhasil", 
+            JOptionPane.INFORMATION_MESSAGE); 
+    kosongkan(); 
+} 
+  
+private String jenisAnggota() { 
+    if (dosenRadio.isSelected()) { 
+        return "Dosen"; 
+    } 
+    if (umumRadio.isSelected()) { 
+        return "Umum"; 
+    } 
+    return "Mahasiswa"; 
+} 
+  
+private void batal() { 
+    // Aksi yang menghapus data meminta konfirmasi terlebih dahulu 
+    if (adaIsian()) { 
+        int jawab = JOptionPane.showConfirmDialog(this, 
+                "Data yang sudah diisi akan dihapus. Lanjutkan?", "Konfirmasi", 
+                JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE); 
+        if (jawab != JOptionPane.YES_OPTION) { 
+            return; 
+        } 
+    } 
+    kosongkan(); 
+} 
+  
+private boolean adaIsian() { 
+    return !npmField.getText().isBlank() || !namaField.getText().isBlank() 
+            || !emailField.getText().isBlank() || !hpField.getText().isBlank() 
+            || !alamatArea.getText().isBlank(); 
+} 
+  
+private void kosongkan() { 
+    for (JTextField isian : List.of(npmField, namaField, emailField, hpField)) { 
+        isian.setText(""); 
+    } 
+    alamatArea.setText(""); 
+    prodiCombo.setSelectedIndex(0); 
+    mahasiswaRadio.setSelected(true); 
+    setujuCheck.setSelected(false); 
+  
+    tandai(npmField, npmLabel, null); 
+    tandai(namaField, namaPesanLabel, null); 
+    tandai(prodiCombo, prodiPesanLabel, null); 
+    tandai(emailField, emailPesanLabel, null); 
+    tandai(hpField, hpPesanLabel, null); 
+    statusLabel.setText(" "); 
+    npmField.requestFocusInWindow(); 
+} 
+  
+/** Merah yang mudah dibaca: lebih gelap di tema terang, lebih terang di tema gelap. */ 
+static Color warnaKesalahan() { 
+    return FlatLaf.isLafDark() ? new Color(0xFF8A80) : new Color(0xC62828); 
+}
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        FlatLightLaf.setup();
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new FormAnggota().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel JenisLabel;
     private javax.swing.JTextArea alamatArea;
+    private javax.swing.JLabel alamatLabel;
+    private javax.swing.JLabel anggotaLabel;
     private javax.swing.JButton batalButton;
     private javax.swing.JPanel bawahPanel;
     private javax.swing.JButton daftarButton;
     private javax.swing.JLabel dataAnggotaLabel;
     private javax.swing.JRadioButton dosenRadio;
     private javax.swing.JTextField emailField;
+    private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel emailPesanLabel;
     private javax.swing.JPanel formPanel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JTextField hpField;
+    private javax.swing.JLabel hpLabel;
     private javax.swing.JLabel hpPesanLabel;
     private javax.swing.JPanel isiPanel;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jenisPanel;
+    private javax.swing.JLabel jenisPesanLabel;
     private javax.swing.JLabel judulLabel;
     private javax.swing.JLabel keteranganLabel;
     private javax.swing.JLabel kontakLabel;
     private javax.swing.JRadioButton mahasiswaRadio;
     private javax.swing.JTextField namaField;
+    private javax.swing.JLabel namaLabel;
     private javax.swing.JLabel namaPesanLabel;
     private javax.swing.JTextField npmField;
+    private javax.swing.JLabel npmLabel;
     private javax.swing.JLabel npmPesanLabel;
     private javax.swing.JComboBox<String> prodiCombo;
+    private javax.swing.JLabel prodiLabel;
     private javax.swing.JLabel prodiPesanLabel;
     private javax.swing.JCheckBox setujuCheck;
     private javax.swing.JLabel statusLabel;
