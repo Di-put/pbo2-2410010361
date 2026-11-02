@@ -4,6 +4,9 @@
  */
 package id.ac.uniska.pbo2.p07;
 
+import com.formdev.flatlaf.FlatLaf;
+import java.awt.Color;
+
 /**
  *
  * @author medip
@@ -11,28 +14,31 @@ package id.ac.uniska.pbo2.p07;
 public class DialogKontak extends javax.swing.JDialog {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DialogKontak.class.getName());
+    
+    private Kontak hasil; // Tetap null jika pengguna membatalkan[cite: 6]
 
     /**
      * Creates new form DialogKontak
      */
-    public DialogKontak(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public DialogKontak(java.awt.Frame pemilik, String judul, Kontak awal) {
+        super(pemilik, judul, true); // true berarti modal[cite: 6]
         initComponents();
         
-        if (awal != null) { 
-        namaField.setText(awal.nama()); 
-        teleponField.setText(awal.telepon()); 
-        emailField.setText(awal.email()); 
-        kategoriCombo.setSelectedItem(awal.kategori()); 
-    } 
-    emailField.putClientProperty("JTextField.placeholderText", "Boleh dikosongkan"); 
-    pesanLabel.putClientProperty("FlatLaf.styleClass", "small"); 
-    pesanLabel.setForeground(FlatLaf.isLafDark() 
-            ? new Color(0xFF8A80) : new Color(0xC62828)); 
-    getRootPane().setDefaultButton(simpanButton); 
-  
-    pack(); 
-    setLocationRelativeTo(pemilik); 
+        if (awal != null) {    
+            namaField.setText(awal.nama());    
+            teleponField.setText(awal.telepon());    
+            emailField.setText(awal.email());    
+            kategoriKombo.setSelectedItem(awal.kategori()); // Sesuaikan dengan nama variabel komponen GUI
+        }    
+        
+        emailField.putClientProperty("JTextField.placeholderText", "Boleh dikosongkan");    
+        pesanLabel.putClientProperty("FlatLaf.styleClass", "small");    
+        pesanLabel.setForeground(FlatLaf.isLafDark()    
+                ? new Color(0xFF8A80) : new Color(0xC62828));    
+        getRootPane().setDefaultButton(simpanButton);    
+      
+        pack();    
+        setLocationRelativeTo(pemilik);    
     }
 
     
@@ -95,10 +101,13 @@ public class DialogKontak extends javax.swing.JDialog {
         namaField.setColumns(22);
         namaField.addActionListener(this::namaFieldActionPerformed);
         isiPanel.add(namaField);
+
+        teleponField.addActionListener(this::teleponFieldActionPerformed);
         isiPanel.add(teleponField);
         isiPanel.add(emailField);
 
-        kategoriKombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "new ", "javax.swing.DefaultComboBoxModel<>(Kategori.values())" }));
+        kategoriKombo.setModel(new javax.swing.DefaultComboBoxModel<>(Kategori.values()));
+        kategoriKombo.setToolTipText("");
         isiPanel.add(kategoriKombo);
 
         formPanel.add(isiPanel, java.awt.BorderLayout.CENTER);
@@ -106,7 +115,7 @@ public class DialogKontak extends javax.swing.JDialog {
         bawahPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 16, 16, 16));
         bawahPanel.setLayout(new java.awt.BorderLayout(0, 8));
 
-        pesanLabel.setText("jLabel1");
+        pesanLabel.setText(" ");
         bawahPanel.add(pesanLabel, java.awt.BorderLayout.NORTH);
 
         tombolPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 8, 0));
@@ -135,12 +144,43 @@ public class DialogKontak extends javax.swing.JDialog {
 
     private void namaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaFieldActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_namaFieldActionPerformed
 
     private void simpanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanButtonActionPerformed
         // TODO add your handling code here:
         simpan();
     }//GEN-LAST:event_simpanButtonActionPerformed
+
+    private void teleponFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teleponFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_teleponFieldActionPerformed
+
+      
+    private void simpan() { 
+        String nama = namaField.getText().trim(); 
+        String telepon = teleponField.getText().trim(); 
+        if (nama.isEmpty()) { 
+            pesanLabel.setText("Nama wajib diisi"); 
+            namaField.requestFocusInWindow(); 
+            return; 
+        } 
+    if (!telepon.matches("\\d{10,13}")) { 
+        pesanLabel.setText("Telepon berisi 10 sampai 13 digit angka"); 
+        teleponField.requestFocusInWindow(); 
+        return;
+        }
+    Kategori kategori = (Kategori) kategoriKombo.getSelectedItem();
+        hasil = new Kontak(nama, telepon, emailField.getText().trim(), kategori);
+        dispose();
+    }
+    
+    /** Menampilkan dialog dan menunggu sampai ditutup. Mengembalikan null jika dibatalkan. */ 
+    public Kontak tampilkan() { 
+        // Pada dialog modal, baris berikut menunggu sampai dialog ditutup 
+        setVisible(true); 
+        return hasil; 
+    } 
 
     /**
      * @param args the command line arguments
@@ -162,21 +202,6 @@ public class DialogKontak extends javax.swing.JDialog {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                DialogKontak dialog = new DialogKontak(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -186,7 +211,7 @@ public class DialogKontak extends javax.swing.JDialog {
     private javax.swing.JLabel emailLabel;
     private javax.swing.JPanel formPanel;
     private javax.swing.JPanel isiPanel;
-    private javax.swing.JComboBox<String> kategoriKombo;
+    private javax.swing.JComboBox<Kategori> kategoriKombo;
     private javax.swing.JLabel kategoriLabel;
     private javax.swing.JPanel labelPanel;
     private javax.swing.JTextField namaField;
